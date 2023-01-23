@@ -178,6 +178,31 @@ function errorUrlReplaced(){
   const gImage = gImages[Math.floor(Math.random()*gImages.length)];
   return gImage
 }
+function randBg(length){
+  var c = "0123456689ABCDEF";
+  var s = "#";
+  var cL = c.length;
+  for ( var i = 0; i < length; i++ ) {
+        s += c.charAt(Math.floor(Math.random() * cL));
+    }
+    return s;
+}
+
+function randText(){
+  var txt = ["Click Here","Need Repo ?","Github Link"];
+  var t = txt[Math.floor(Math.random()*txt.length)];
+  return t
+}
+
+
+
+
+setInterval(()=>{
+  const repo = document.querySelector(".repo");
+  repo.style.backgroundColor=randBg(6);
+  repo.innerHTML = randText();
+},2000);
+
 
 blogImg();
 
