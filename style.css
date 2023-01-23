@@ -271,3 +271,16 @@ footer a {
     height: 240px;
   }
 }
+.repo{
+  position: fixed;
+  bottom: 20px;
+  left:0;
+  padding:8px 21px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #689f38;
+  color:#fff;
+  font-size: 12px;
+  text-decoration: none;
+  transition : 0.4s ease-in-out
+}
