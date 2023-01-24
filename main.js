@@ -6,25 +6,20 @@ const btn = document.querySelector(".loadmore");
 
 //tabs reaveal
 
-function ot(evt, tabName) {
+function ot(event,tabName) {
   // Declare all variables
-  var i, tabcontent, tablinks;
+  var i, tbc, tlink;
+  
+  document.querySelectorAll(".tabcontent").forEach((tabcontent)=>{
+    tabcontent.style.display='none'
+  });
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.querySelectorAll(".tablinks").forEach((tablink)=>{
+    tablink.className = tablink.className.replace("active","");
+  });
+  
   document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
+  event.currentTarget.className += " active";
 }
 
 document.querySelector("#showDef").click();
@@ -178,6 +173,7 @@ function errorUrlReplaced(){
   const gImage = gImages[Math.floor(Math.random()*gImages.length)];
   return gImage
 }
+
 function randBg(length){
   var c = "0123456689ABCDEF";
   var s = "#";
@@ -194,15 +190,11 @@ function randText(){
   return t
 }
 
-
-
-
 setInterval(()=>{
   const repo = document.querySelector(".repo");
   repo.style.backgroundColor=randBg(6);
   repo.innerHTML = randText();
 },2000);
-
 
 blogImg();
 
