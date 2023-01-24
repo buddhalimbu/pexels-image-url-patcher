@@ -54,6 +54,8 @@ x.addEventListener("click", function(e){
   //create image wrapper
   const imgHolder= document.createElement("div");
   imgHolder.className = "imgHolder";
+  const imgBlock = document.createElement("div");
+  imgBlock.className="imgBlock";
   const imgClose = document.createElement("span");
   imgClose.className = "imgClose";
   const imgCloseTxt = document.createTextNode("\u00D7");
@@ -61,7 +63,7 @@ x.addEventListener("click", function(e){
   
   //hide on click
   imgClose.onclick = (item) => {
-    item.target.parentNode.style.display="none"
+    item.target.parentNode.parentNode.style.display="none"
   }
   
   //image module onclick
@@ -126,7 +128,9 @@ const options = {
 
 
   //append the button close
-  imgHolder.append(imgClose,newImage,dImg,cs,note);
+  
+  imgBlock.append(imgClose,newImage,dImg,cs,note);
+  imgHolder.appendChild(imgBlock);
   document.body.appendChild(imgHolder)
 });
 });
